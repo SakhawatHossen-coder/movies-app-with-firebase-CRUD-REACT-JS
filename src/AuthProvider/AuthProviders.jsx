@@ -14,12 +14,12 @@ import React, { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 
 const auth = getAuth(app);
+export const AuthContext = createContext(null);
 //social providers;
 const githubProvider = new GithubAuthProvider();
 const googleProvider = new GoogleAuthProvider();
 const twitterProvider = new TwitterAuthProvider();
-export const AuthContext = createContext(null);
-const AuthContext = ({ children }) => {
+const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
 
@@ -67,7 +67,7 @@ const AuthContext = ({ children }) => {
       unsubscribe();
     };
   }, []);
-  v;
+
   const authInfo = {
     createUser,
     user,
@@ -84,4 +84,4 @@ const AuthContext = ({ children }) => {
   );
 };
 
-export default AuthContext;
+export default AuthProviders;

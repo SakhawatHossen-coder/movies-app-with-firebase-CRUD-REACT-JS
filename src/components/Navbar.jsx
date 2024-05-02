@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProviders";
+import { Button, Typography } from "@material-tailwind/react";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const navItems = (
     <>
       <li>
@@ -48,7 +52,42 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src={
+                    user?.photoURL ||
+                    "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  }
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 my-4 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li className="my-4">
+                <Typography className="pop">
+                  {user?.displayName || "User not found"}
+                </Typography>
+              </li>
+              <NavLink>
+                <Button onClick={logOut}>Log Out</Button>
+              </NavLink>
+            </ul>
+          </div>
+        ) : (
+          <NavLink to="/login">
+            <Button>Log In</Button>
+          </NavLink>
+        )}
       </div>
     </div>
   );
