@@ -1,0 +1,50 @@
+[
+  {
+    "movieName": "The Shawshank Redemption",
+    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption in their friendship.",
+    "rating": 9.3,
+    "directedBy": "Frank Darabont",
+    "rottenTomato": 91,
+    "img": "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/shawshank_eb84716b-efa9-44dc-a19d-c17924a3f7df_500x749.jpg?v=1709821984"
+  },
+  {
+    "movieName": "The Godfather",
+    "description": "The story of the Corleone family under patriarch Vito Corleone, focusing on the transformation of his youngest son, Michael, from reluctant family outsider to ruthless mafia boss.",
+    "rating": 9.2,
+    "directedBy": "Francis Ford Coppola",
+    "rottenTomato": 99,
+     "img":"https://cdn.shopify.com/s/files/1/0057/3728/3618/products/godfather.132843.mp_500x749.jpg?v=1654286052" 
+  },
+  {
+    "movieName": "The Dark Knight",
+    "description": "When the mentally disturbed Joker wreaks havoc on Gotham, Batman must decide how far he will go to stop him.",
+    "rating": 9.0,
+    "directedBy": "Christopher Nolan",
+    "rottenTomato": 94,
+     "img": "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/darkknight.building.24x36_20e90057-f673-4cc3-9ce7-7b0d3eeb7d83_500x749.jpg?v=1707491191"
+  },
+  {
+    "movieName": "Schindler's List",
+    "description": "The true story of Oskar Schindler, a German businessman who saved the lives of over a thousand Jews during the Holocaust.",
+    "rating": 8.9,
+    "directedBy": "Steven Spielberg",
+    "rottenTomato": 94,
+     "img": "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/schindlers-list_d41a77ec_500x749.jpg?v=1697746571"
+  },
+  {
+    "movieName": "Pulp Fiction",
+    "description": "When a briefcase containing mysterious contents is passed between an assortment of criminals in Los Angeles, the results are bloody, comedic, and wildly unpredictable.",
+    "rating": 8.9,
+    "directedBy": "Quentin Tarantino",
+    "rottenTomato": 94,
+     "img": "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/ItemP2297_jpg_500x749.jpg?v=1705609586"
+  },
+  {
+    "movieName": "12 Angry Men",
+    "description": "A jury deliberates the fate of a young man accused of murdering his father in this classic courtroom drama.",
+    "rating": 8.9,
+    "directedBy": "Sidney Lumet",
+    "rottenTomato": 100,
+     "img": "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/3a5bd5d26fb4e65a922508e7ce597d5e_2c03f332-fc4d-4df2-b6ac-61d577804ea8_500x749.jpg?v=1573592716"
+  }
+]
