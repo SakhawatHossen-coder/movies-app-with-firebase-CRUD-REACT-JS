@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Card,
   CardHeader,
@@ -10,14 +10,23 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 
-import { GiTomato } from "react-icons/gi";
+import { GiToaster, GiTomato } from "react-icons/gi";
 import { RiNetflixFill } from "react-icons/ri";
 import { FaAmazonPay, FaImdb } from "react-icons/fa";
-import { BiBookmarkAltPlus } from "react-icons/bi";
+import { BiBookmarkAltMinus, BiBookmarkAltPlus } from "react-icons/bi";
+import { AuthContext } from "../AuthProvider/AuthProviders";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
+  const { user } = useContext(AuthContext);
   const { _id, movieName, description, rating, directedBy, rottenTomato, img } =
     movie;
+  const [watch, setWatch] = useState(false);
+  function handleWatchlist() {
+    if (user) {
+      setWatch(true);
+    }
+  }
   return (
     <Card className="w-full max-w-[26rem] shadow-lg">
       <CardHeader floated={false} color="blue-gray">
@@ -93,16 +102,34 @@ const MovieCard = ({ movie }) => {
           </Tooltip>
         </div>
       </CardBody>
-      <CardFooter className="pt-3  ">
+      <CardFooter className="pt-3">
         <Button
+          onClick={handleWatchlist}
           size="lg"
           fullWidth={true}
-          className="flex justify-center items-center"
+          disabled={watch} // Set disabled attribute based on state
+          className={
+            watch
+              ? "disabled flex justify-center items-center"
+              : "flex justify-center items-center"
+          }
         >
-          Add to Watchlist
-          <div>
-            <BiBookmarkAltPlus size={24} />
-          </div>
+          {user ? (
+            <>
+              {watch ? "Added to Watchlist" : "Add to Watchlist"}
+              {watch ? (
+                <div>
+                  <BiBookmarkAltMinus size={24} />
+                </div>
+              ) : (
+                <div>
+                  <BiBookmarkAltPlus size={24} />
+                </div>
+              )}
+            </>
+          ) : (
+            <Link to="/login">add</Link>
+          )}
         </Button>
       </CardFooter>
     </Card>

@@ -13,6 +13,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProviders";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import axios from "axios";
 const Login = () => {
   const { logIn } = useContext(AuthContext);
   const {
@@ -23,6 +24,7 @@ const Login = () => {
   } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
+  // console.log(location)
   const from = location?.state || "/";
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -31,15 +33,21 @@ const Login = () => {
       .then((result) => {
         if (result.user) {
           Swal.fire({
-            title: "Successfully User Created ",
+            title: "Successfully Logged In ",
             text: "Do you want to continue",
             icon: "success",
             confirmButtonText: "Ok",
           });
           navigate(from);
+          
+          // axios.post('https://movies-server-side.vercel.app/jwt',email)
+          // .then(data=>{
+          //   console.log(data.data);
+          // })
         }
       })
       .catch((err) => {
+        console.error(err)
         Swal.fire({
           title: "Try Again! Invalid Credentials",
           text: "Do you want to continue",
@@ -64,11 +72,13 @@ const Login = () => {
           <Input
             label="Email"
             size="lg"
+            type="email"
             {...register("email", { required: true })}
           />
           <Input
             label="Password"
             size="lg"
+            type="password"
             {...register("password", { required: true })}
           />
           <Button type="submit" value="Sign In" variant="gradient" fullWidth>

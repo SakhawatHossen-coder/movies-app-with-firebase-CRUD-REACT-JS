@@ -27,6 +27,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path:'/mywishlist',
+        element:<MyWishlist/>
+      }
     ],
   },
 ]);
